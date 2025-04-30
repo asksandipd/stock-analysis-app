@@ -1,36 +1,116 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Stock Gainers - Real-time Market Analysis App
+
+A dynamic Next.js application for tracking top gaining stocks with interactive charts and real-time market data using Finnhub API.
+
+![Stock Gainers Dashboard](public/dashboard-preview.png)
+
+## Project Overview
+
+Stock Gainers is a modern web application that allows users to:
+
+- Track top-performing stocks in real-time
+- View detailed stock price charts with customizable time ranges
+- Analyze historical stock data
+- Monitor key metrics like price changes and trading volume
+- Receive real-time updates via WebSocket connections
+
+## Features
+
+- **Real-time Stock Data**: Live price updates using Finnhub WebSocket API
+- **Interactive Charts**: Responsive and interactive stock price charts using Lightweight Charts
+- **Multiple Time Ranges**: View stock performance across 1D, 5D, 10D, 1W, 1M, and 6M periods
+- **Responsive Design**: Mobile-friendly interface that works on all devices
+- **Data Caching**: Optimized API usage with smart caching strategies
+- **Error Handling**: Robust error management for API failures
+- **Loading States**: Smooth user experience with loading indicators
+- **Keyboard Navigation**: Accessible interface with keyboard shortcuts
+
+## Tech Stack
+
+- **Frontend**: Next.js 14 with App Router, React 18, TypeScript
+- **Styling**: Tailwind CSS for responsive design
+- **Authentication**: NextAuth.js for secure user access
+- **Charts**: Lightweight Charts for high-performance visualizations
+- **API Integration**: Finnhub API for financial data
+- **Real-time Updates**: WebSocket connections for live data
 
 ## Getting Started
 
-First, run the development server:
+### Prerequisites
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+- Node.js 18.0 or later
+- Finnhub API key (register at [Finnhub.io](https://finnhub.io))
+
+### Environment Setup
+
+Create a `.env.local` file in the root directory with:
+
+```
+NEXT_PUBLIC_FINNHUB_API_KEY=your_finnhub_api_key
+NEXTAUTH_URL=http://localhost:3000
+NEXTAUTH_SECRET=your_nextauth_secret
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### Installation
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```bash
+# Clone the repository
+git clone https://github.com/YourUsername/stock-analysis-app.git
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+# Navigate to project directory
+cd stock-analysis-app
 
-## Learn More
+# Install dependencies
+npm install
 
-To learn more about Next.js, take a look at the following resources:
+# Start development server
+npm run dev
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Open [http://localhost:3000](http://localhost:3000) in your browser to see the application.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Project Structure
 
-## Deploy on Vercel
+```
+src/
+├── app/               # Next.js App Router pages
+│   ├── page.tsx       # Landing page
+│   ├── dashboard/     # Stock analysis dashboard
+│   └── auth/          # Authentication pages
+├── components/        # Reusable UI components
+│   ├── charts/        # Chart components
+│   └── ...
+├── lib/               # Utility functions and services
+│   ├── api/           # API integration services
+│   └── config.ts      # Application configuration
+└── types/             # TypeScript type definitions
+```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## API Integration
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+This application uses the Finnhub API for:
+
+1. **Stock Symbol Lookup**: Getting top gainers and stock data
+2. **Historical Candle Data**: Retrieving price history for charting
+3. **Real-time WebSocket**: Subscribing to live price updates
+
+The app implements a throttling mechanism to respect Finnhub's rate limits of 60 requests per minute on the free tier.
+
+## Future Improvements
+
+- Portfolio tracking and watchlists
+- Advanced technical indicators
+- Customizable dashboards
+- News integration for selected stocks
+- Performance optimizations for mobile devices
+
+## License
+
+This project is licensed under the MIT License - see the LICENSE file for details.
+
+## Acknowledgements
+
+- [Finnhub](https://finnhub.io) for providing financial data API
+- [Lightweight Charts](https://tradingview.github.io/lightweight-charts/) for chart visualization
+- [Next.js](https://nextjs.org) for the React framework
+- [Tailwind CSS](https://tailwindcss.com) for styling
