@@ -6,7 +6,7 @@ A dynamic Next.js application for tracking top gaining stocks with interactive c
 
 ## Project Overview
 
-Stock Gainers is a modern web application that allows users to:
+Stock Gainers is a web application (Dev In Progress) that allows users to:
 
 - Track top-performing stocks in real-time
 - View detailed stock price charts with customizable time ranges
